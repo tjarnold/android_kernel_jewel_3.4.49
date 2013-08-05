@@ -140,6 +140,10 @@ config CPU_FREQ_GOV_INTELLIDEMAND
 	help
 	  governor' - an intelligent governor based on user demand!
 
+config CPU_FREQ_DEFAULT_GOV_PEGASUSQ
+	bool "pegasusq"
+	select CPU_FREQ_GOV_PEGASUSQ
+
 config CPU_FREQ_GOV_LIONHEART
 	tristate "lionheart"
 	depends on CPU_FREQ
