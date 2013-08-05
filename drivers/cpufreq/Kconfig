@@ -67,6 +67,10 @@ config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	  the frequency statically to the lowest frequency supported by
 	  the CPU.
 
+config CPU_FREQ_DEFAULT_GOV_PEGASUSQ
+	bool "pegasusq"
+	select CPU_FREQ_GOV_PEGASUSQ
+
 config CPU_FREQ_DEFAULT_GOV_USERSPACE
 	bool "userspace"
 	select CPU_FREQ_GOV_USERSPACE
@@ -139,6 +143,10 @@ config CPU_FREQ_GOV_INTELLIDEMAND
 	depends on CPU_FREQ
 	help
 	  governor' - an intelligent governor based on user demand!
+
+config CPU_FREQ_GOV_PEGASUSQ
+	tristate "'pegasusq' cpufreq policy governor"
+	depends on CPU_FREQ
 
 config CPU_FREQ_GOV_LIONHEART
 	tristate "lionheart"
