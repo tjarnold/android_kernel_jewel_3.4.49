@@ -94,6 +94,12 @@ config CPU_FREQ_DEFAULT_GOV_INTELLIDEMAND
   	help
   	  Use the CPUFreq governor 'intellidemand' as default.
 
+config CPU_FREQ_DEFAULT_GOV_LIONHEART
+	bool "lionheart"
+	select CPU_FREQ_GOV_LIONHEART
+	help
+	  Use the CPUFreq governor 'lionheart' as default
+
 config CPU_FREQ_DEFAULT_GOV_CONSERVATIVE
 	bool "conservative"
 	select CPU_FREQ_GOV_CONSERVATIVE
@@ -133,6 +139,12 @@ config CPU_FREQ_GOV_INTELLIDEMAND
 	depends on CPU_FREQ
 	help
 	  governor' - an intelligent governor based on user demand!
+
+config CPU_FREQ_GOV_LIONHEART
+	tristate "lionheart"
+	depends on CPU_FREQ
+	help
+	  Use the CPUFreq governor 'lionheart' as default.
 
 config CPU_FREQ_GOV_POWERSAVE
 	tristate "'powersave' governor"
