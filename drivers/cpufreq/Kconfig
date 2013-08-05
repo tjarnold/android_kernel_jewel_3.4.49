@@ -131,6 +131,8 @@ config CPU_FREQ_GOV_PERFORMANCE
 config CPU_FREQ_GOV_INTELLIDEMAND
 	tristate "'intellidemand' cpufreq governor"
 	depends on CPU_FREQ
+	help
+	  governor' - an intelligent governor based on user demand!
 
 config CPU_FREQ_GOV_POWERSAVE
 	tristate "'powersave' governor"
