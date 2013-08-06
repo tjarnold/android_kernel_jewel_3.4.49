@@ -22,11 +22,9 @@
  * For a general overview of smartassV2 see the relavent part in
  * Documentation/cpu-freq/governors.txt
  *
- * MODULE_AUTHOR ("Erasmux");
- * MODULE_DESCRIPTION ("'cpufreq_smartass2' - A smart cpufreq governor");
- * MODULE_LICENSE ("GPL");
  */
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include <linux/kernel.h>
 #include <linux/module.h>
@@ -49,6 +47,8 @@
 =======
 >>>>>>> parent of 662ee1d... Fix SmartAss2 Governor
 
+=======
+>>>>>>> parent of d37aea1... Fix SmartAss2 Governor
 #include <linux/cpu.h>
 #include <linux/cpumask.h>
 #include <linux/cpufreq.h>
@@ -190,10 +190,10 @@ static int cpufreq_governor_smartass(struct cpufreq_policy *policy,
 static
 #endif
 struct cpufreq_governor cpufreq_gov_smartass2 = {
-	.name 				= "smartassV2",
-	.governor 			= cpufreq_governor_smartass,
-	.max_transition_latency 	= 9000000,
-	.owner                  	= THIS_MODULE,
+	.name = "smartassV2",
+	.governor = cpufreq_governor_smartass,
+	.max_transition_latency = 9000000,
+	.owner = THIS_MODULE,
 };
 
 inline static void smartass_update_min_max(struct smartass_info_s *this_smartass, struct cpufreq_policy *policy, int suspend) {
@@ -313,8 +313,8 @@ static void cpufreq_smartass_timer(unsigned long cpu)
 	if (this_smartass->idle_exit_time == 0 || update_time == this_smartass->idle_exit_time)
 		return;
 
-	delta_idle = kcpustat_cpu(now_idle, this_smartass->time_in_idle);
-	delta_time = kcpustat_cpu(update_time, this_smartass->idle_exit_time);
+	delta_idle = cputime64_sub(now_idle, this_smartass->time_in_idle);
+	delta_time = cputime64_sub(update_time, this_smartass->idle_exit_time);
 
 	// If timer ran less than 1ms after short-term sample started, retry.
 	if (delta_time < 1000) {
@@ -341,7 +341,7 @@ static void cpufreq_smartass_timer(unsigned long cpu)
 	{
 		if (old_freq < policy->max &&
 			 (old_freq < this_smartass->ideal_speed || delta_idle == 0 ||
-			  kcpustat_cpu(update_time, this_smartass->freq_change_time) >= up_rate_us))
+			  cputime64_sub(update_time, this_smartass->freq_change_time) >= up_rate_us))
 		{
 			dprintk(SMARTASS_DEBUG_ALG,"smartassT @ %d ramp up: load %d (delta_idle %llu)\n",
 				old_freq,cpu_load,delta_idle);
@@ -356,7 +356,7 @@ static void cpufreq_smartass_timer(unsigned long cpu)
 	// frequency we require that we have been at this frequency for at least down_rate_us:
 	else if (cpu_load < min_cpu_load && old_freq > policy->min &&
 		 (old_freq > this_smartass->ideal_speed ||
-		  kcpustat_cpu(update_time, this_smartass->freq_change_time) >= down_rate_us))
+		  cputime64_sub(update_time, this_smartass->freq_change_time) >= down_rate_us))
 	{
 		dprintk(SMARTASS_DEBUG_ALG,"smartassT @ %d ramp down: load %d (delta_idle %llu)\n",
 			old_freq,cpu_load,delta_idle);
@@ -899,3 +899,6 @@ static void __exit cpufreq_smartass_exit(void)
 
 module_exit(cpufreq_smartass_exit);
 
+MODULE_AUTHOR ("Erasmux");
+MODULE_DESCRIPTION ("'cpufreq_smartass2' - A smart cpufreq governor");
+MODULE_LICENSE ("GPL");
