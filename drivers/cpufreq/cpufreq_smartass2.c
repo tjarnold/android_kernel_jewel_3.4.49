@@ -27,6 +27,7 @@
  * MODULE_LICENSE ("GPL");
  */
 
+<<<<<<< HEAD
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/init.h>
@@ -45,6 +46,8 @@
 #include <linux/ktime.h>
 #include <linux/input.h>
 #include <linux/slab.h>
+=======
+>>>>>>> parent of 662ee1d... Fix SmartAss2 Governor
 
 #include <linux/cpu.h>
 #include <linux/cpumask.h>
@@ -190,7 +193,7 @@ struct cpufreq_governor cpufreq_gov_smartass2 = {
 	.name 				= "smartassV2",
 	.governor 			= cpufreq_governor_smartass,
 	.max_transition_latency 	= 9000000,
-	.owner = THIS_MODULE,
+	.owner                  	= THIS_MODULE,
 };
 
 inline static void smartass_update_min_max(struct smartass_info_s *this_smartass, struct cpufreq_policy *policy, int suspend) {
