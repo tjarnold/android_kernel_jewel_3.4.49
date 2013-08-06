@@ -24,6 +24,31 @@
  *
  */
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/init.h>
+#include <linux/jiffies.h>
+#include <linux/kernel_stat.h>
+#include <linux/mutex.h>
+#include <linux/hrtimer.h>
+<<<<<<< HEAD
+<<<<<<< HEAD
+#include <linux/tick.h>
+=======
+>>>>>>> parent of 476dfcd... Fix SmartAss2 Governor
+=======
+#include <linux/tick.h>
+>>>>>>> parent of ea4c86b... Fix SmartAss2 Governor
+#include <linux/ktime.h>
+#include <linux/input.h>
+#include <linux/slab.h>
+=======
+>>>>>>> parent of 662ee1d... Fix SmartAss2 Governor
+
+=======
+>>>>>>> parent of d37aea1... Fix SmartAss2 Governor
 #include <linux/cpu.h>
 #include <linux/cpumask.h>
 #include <linux/cpufreq.h>
@@ -32,7 +57,7 @@
 #include <linux/timer.h>
 #include <linux/workqueue.h>
 #include <linux/moduleparam.h>
-#include <asm-generic/cputime.h>
+#include <asm/cputime.h>
 #include <linux/earlysuspend.h>
 
 
