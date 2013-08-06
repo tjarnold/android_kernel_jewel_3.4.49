@@ -34,7 +34,10 @@
 #include <linux/kernel_stat.h>
 #include <linux/mutex.h>
 #include <linux/hrtimer.h>
+<<<<<<< HEAD
 #include <linux/tick.h>
+=======
+>>>>>>> parent of 476dfcd... Fix SmartAss2 Governor
 #include <linux/ktime.h>
 #include <linux/input.h>
 #include <linux/slab.h>
