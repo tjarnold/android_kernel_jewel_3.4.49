@@ -30,7 +30,7 @@
 #include <linux/slab.h>
 #include <linux/suspend.h>
 #include <linux/reboot.h>
-#include <asmi-generic/cputime.h>
+#include <asm-generic/cputime.h>
 
 #ifdef CONFIG_HAS_EARLYSUSPEND
 #include <linux/earlysuspend.h>
