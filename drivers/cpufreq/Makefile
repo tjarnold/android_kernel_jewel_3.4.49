@@ -12,7 +12,10 @@ obj-$(CONFIG_CPU_FREQ_GOV_CONSERVATIVE)	 += cpufreq_conservative.o
 obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVE)	 += cpufreq_interactive.o
 obj-$(CONFIG_CPU_FREQ_GOV_INTELLIDEMAND) += cpufreq_intellidemand.o
 obj-$(CONFIG_CPU_FREQ_GOV_LIONHEART)  	 += cpufreq_lionheart.o
+<<<<<<< HEAD
 obj-$(CONFIG_CPU_FREQ_GOV_SMARTASS2)  	 += cpufreq_smartass2.o
+=======
+>>>>>>> parent of 6960f1a... Add Smartass2 Governor
 
 # CPUfreq cross-arch helpers
 obj-$(CONFIG_CPU_FREQ_TABLE)		+= freq_table.o
